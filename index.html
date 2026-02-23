@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>369163 | TERMINAL V6.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white antialiased">
+
+    <nav class="nav-terminal fixed w-full z-50 top-0 border-b-2 border-red-700 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="brand-badge animate__animated animate__pulse animate__infinite">369163</div>
+                <div id="user-info" class="hidden md:block border-l border-white/20 pl-4">
+                    <span id="display-name" class="text-[10px] font-mono uppercase font-bold text-red-500"></span>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <button id="auth-btn" onclick="UI.toggleModal('modal-auth')" class="text-[10px] font-black uppercase border-b-2 border-red-700">ACCESO</button>
+                <button onclick="UI.toggleModal('modal-cart')" class="bg-white text-black px-4 py-1 font-black text-xs">
+                    TICKET (<span id="cart-count">0</span>)
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ticker-wrap mt-20">
+        <div class="ticker">
+            • ARANCEL GESTIÓN 5% • DESPACHO DIRECTO AL 3644369163 • RIFA ACTIVA CON TU COMPRA • CALIDAD PREMIUM 369 •
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto p-6 md:p-12">
+        <header class="mb-12">
+            <h1 class="text-6xl md:text-8xl font-black italic uppercase leading-none tracking-tighter">
+                SISTEMA <br><span class="text-red-700">AUTOMÁTICO</span>
+            </h1>
+            <p class="text-xs md:text-sm mt-6 text-white/70 font-mono">— CORTES PREMIUM SELECCIONADOS — DESPACHO DIRECTO — GARANTÍA 369 —</p>
+        </header>
+
+        <!-- SECCIÓN DESTACADOS -->
+        <section class="section-highlight mb-16">
+            <div class="section-title">⚡ OFERTAS DESTACADAS</div>
+            <div id="grid-destacados" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"></div>
+        </section>
+
+        <!-- SECCIÓN GOURMET -->
+        <section class="section-gourmet mb-16">
+            <div class="section-title">🥩 CORTES GOURMET</div>
+            <div id="grid-gourmet" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+
+        <!-- SECCIÓN PREMIUM -->
+        <section class="section-premium mb-16">
+            <div class="section-title">👑 SELECCIÓN PREMIUM</div>
+            <div id="grid-premium" class="grid grid-cols-1 gap-8"></div>
+        </section>
+
+        <!-- INFORMACIÓN -->
+        <section class="info-section mt-16 p-8 border-4 border-red-700 bg-black">
+            <h3 class="text-2xl font-black mb-4 text-red-700">📋 FORMAS DE PAGO</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">💵</span>
+                    <div><strong>EFECTIVO</strong><p class="text-white/60">10% de descuento</p></div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">💳</span>
+                    <div><strong>TARJETA (DÉBITO/CRÉDITO)</strong><p class="text-white/60">Sin recargo</p></div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">🏛️</span>
+                    <div><strong>TRANSFERENCIA BANCARIA</strong><p class="text-white/60">Banco elegido</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-auth" class="modal-overlay">
+        <div class="talonario-card max-w-md w-full animate__animated animate__zoomIn">
+            <div class="flex border-b-4 border-black mb-6 text-black">
+                <button onclick="UI.switchAuth('login')" id="tab-login" class="auth-tab active">ENTRAR</button>
+                <button onclick="UI.switchAuth('reg')" id="tab-reg" class="auth-tab">REGISTRO</button>
+            </div>
+            <div id="form-login">
+                <input type="email" id="l-email" class="input-369 mb-4" placeholder="EMAIL">
+                <input type="password" id="l-pass" class="input-369 mb-4" placeholder="CONTRASEÑA">
+                <button onclick="Auth.login()" class="btn-action">ACCEDER</button>
+            </div>
+            <div id="form-reg" class="hidden">
+                <div class="grid grid-cols-2 gap-2 mb-4">
+                    <input type="text" id="r-name" class="input-369" placeholder="NOMBRE">
+                    <input type="text" id="r-last" class="input-369" placeholder="APELLIDO">
+                </div>
+                <input type="email" id="r-email" class="input-369 mb-4" placeholder="EMAIL">
+                <div class="grid grid-cols-2 gap-2 mb-4">
+                    <input type="text" id="r-calle" class="input-369" placeholder="CALLE">
+                    <input type="text" id="r-numero" class="input-369" placeholder="NÚMERO">
+                </div>
+                <input type="text" id="r-barrio" class="input-369 mb-4" placeholder="BARRIO">
+                <input type="password" id="r-pass" class="input-369 mb-4" placeholder="PASSWORD">
+                <button onclick="Auth.register()" class="btn-action bg-red-800">CREAR CUENTA</button>
+            </div>
+            <button onclick="UI.toggleModal('modal-auth')" class="w-full mt-4 text-[10px] font-bold opacity-30 text-black">CERRAR</button>
+        </div>
+    </div>
+
+    <div id="modal-cart" class="modal-overlay">
+        <div class="talonario-card max-w-lg w-full">
+            <h2 class="text-2xl font-black italic border-b-2 border-black mb-2 text-black uppercase">Ticket</h2>
+            <div id="cart-items" class="max-h-48 overflow-y-auto mb-2 text-xs"></div>
+            <div class="p-2 bg-zinc-200 border-2 border-black font-mono text-black text-sm">
+                <div class="flex justify-between"><span>SUBTOTAL</span> <span id="val-sub">$0</span></div>
+                <div class="flex justify-between text-red-700 font-bold"><span>ARANCEL (5%)</span> <span id="val-tax">$0</span></div>
+                <div id="desc-row" class="hidden flex justify-between text-green-700 font-bold"><span>DESC.(-10%)</span> <span id="val-desc">$0</span></div>
+                <div class="flex justify-between text-xl font-black border-t border-black mt-1 pt-1">
+                    <span>TOTAL</span> <span id="val-total">$0</span>
+                </div>
+            </div>
+            <select id="pay-method" onchange="UI.toggleCardFields()" class="input-369 bg-white mt-2 font-bold text-xs">
+                <option value="EFECTIVO">💵 EFECTIVO (-10%)</option>
+                <option value="MERCADOPAGO">💳 TARJETA</option>
+                <option value="TRANSFERENCIA">🏛️ TRANSFERENCIA</option>
+            </select>
+            
+            <div id="card-fields" class="hidden mt-2 p-2 bg-white border-2 border-red-700 rounded">
+                <h4 class="font-bold text-black mb-1 text-xs">💳 Tarjeta</h4>
+                <input type="text" id="card-name" class="input-369 mb-1 text-black text-xs placeholder:text-xs" placeholder="TITULAR">
+                <input type="text" id="card-number" class="input-369 mb-1 text-black text-xs placeholder:text-xs" placeholder="6 PRIM. + 4 ÚLTIMOS" maxlength="10">
+                <div class="grid grid-cols-2 gap-1">
+                    <input type="text" id="card-expiry" class="input-369 text-black text-xs placeholder:text-xs" placeholder="MM/DD" maxlength="5">
+                    <input type="text" id="card-cvv" class="input-369 text-black text-xs placeholder:text-xs" placeholder="CVV" maxlength="4">
+                </div>
+            </div>
+            <div id="transfer-fields" class="hidden mt-2 p-2 bg-white border-2 border-red-700 rounded">
+                <h4 class="font-bold text-black mb-1 text-xs">🏦 Transferencia Bancaria (CBU)</h4>
+                <input type="text" id="transfer-bank" class="input-369 mb-1 text-black text-xs" placeholder="Banco (ej. Banco Nación)">
+                <input type="text" id="transfer-cbu" class="input-369 mb-1 text-black text-xs" placeholder="CBU / Alias">
+                <p class="text-[10px] text-black/60 mt-1">Envía la transferencia a este CBU y agrega la referencia en el mensaje.</p>
+            </div>
+            
+            <button onclick="Cart.checkout()" class="btn-whatsapp text-sm mt-2">ENVIAR</button>
+            <button onclick="UI.toggleModal('modal-cart')" class="w-full mt-4 text-[10px] font-bold opacity-30 text-black uppercase">Volver</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
