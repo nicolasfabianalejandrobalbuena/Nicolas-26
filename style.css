@@ -1,0 +1,127 @@
+:root { --rojo: #a30000; --papel: #f9f8f4; --ink: #111111; }
+
+.brand-badge { background: var(--rojo); color: white; padding: 4px 20px; font-weight: 900; font-size: 1.8rem; font-style: italic; border: 2px solid #fff; }
+.ticker-wrap { background: var(--rojo); padding: 8px 0; overflow: hidden; border-bottom: 2px solid #c5a059; }
+.ticker { white-space: nowrap; display: inline-block; animation: moveTicker 25s linear infinite; font-family: 'Space Mono'; font-size: 11px; color: white; }
+@keyframes moveTicker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+/* SECCIONES */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 4px solid var(--rojo);
+    letter-spacing: 2px;
+}
+
+.section-highlight {
+    border-top: 6px solid var(--rojo);
+    border-bottom: 6px solid var(--rojo);
+    padding: 2rem 0;
+    background: linear-gradient(135deg, rgba(163, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.section-gourmet {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(163, 0, 0, 0.1) 100%);
+    padding: 2rem;
+    border: 2px solid rgba(163, 0, 0, 0.3);
+}
+
+.section-premium {
+    background: linear-gradient(90deg, rgba(163, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0.02) 100%);
+    padding: 2rem;
+    border-left: 8px solid var(--rojo);
+}
+
+.info-section {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.talonario-card { background: var(--papel) !important; color: var(--ink) !important; padding: 2rem; border-left: 15px dashed var(--ink); box-shadow: 15px 15px 0px var(--rojo); position: relative; }
+
+/* CARRUSEL DE 6 IMÁGENES */
+.carousel-viewport { position: relative; height: 250px; overflow: hidden; border-bottom: 4px solid var(--ink); margin: -2rem -2rem 1.5rem -2rem; }
+.carousel-container { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; }
+.carousel-container img { min-width: 100%; object-fit: cover; }
+
+/* Animación para productos con una sola imagen (hacer movimiento suave) */
+.carousel-viewport.single-slide .carousel-container img {
+    animation: panZoom 6s ease-in-out infinite;
+    transform-origin: center center;
+}
+@keyframes panZoom {
+    0% { transform: scale(1) translateX(0); }
+    50% { transform: scale(1.06) translateX(-3%); }
+    100% { transform: scale(1) translateX(0); }
+}
+
+/* Ocultar botones cuando sólo hay una imagen */
+.carousel-viewport.single-slide .carousel-btn { display: none; }
+
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--ink); color: white; width: 35px; height: 50px; font-weight: 900; z-index: 10; border: none; cursor: pointer; opacity: 0.7; }
+.carousel-btn:hover { opacity: 1; background: var(--rojo); }
+.btn-prev { left: 0; } .btn-next { right: 0; }
+
+.qty-control { display: flex; align-items: center; border: 3px solid var(--ink); height: 50px; background: white; }
+.btn-qty { width: 45px; height: 100%; font-weight: 900; color: black; border: none; cursor: pointer; }
+.qty-input { width: 50px; text-align: center; font-weight: 900; color: black; border: none; }
+.input-369 { width: 100%; padding: 8px; border: 2px solid var(--ink); color: black !important; font-weight: 700; outline: none; font-size: 0.9rem; }
+.btn-action { width: 100%; background: var(--ink); color: white; padding: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; }
+.btn-whatsapp { width: 100%; background: #25D366; color: white; padding: 12px; font-weight: 900; font-size: 0.95rem; margin-top: 8px; border: none; cursor: pointer; }
+
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+.auth-tab { flex: 1; padding: 15px; font-weight: 900; opacity: 0.3; border: none; cursor: pointer; }
+.auth-tab.active { opacity: 1; border-bottom: 5px solid var(--rojo); }
+
+/* CARDS DE PRODUCTOS */
+.producto-card {
+    background: var(--papel);
+    color: var(--ink);
+    padding: 0;
+    border: 3px solid var(--ink);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 0 var(--rojo);
+}
+
+.producto-header {
+    background: var(--rojo);
+    color: white;
+    padding: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.producto-desc {
+    font-size: 0.85rem;
+    color: var(--ink);
+    opacity: 0.7;
+    padding: 0 1rem;
+    margin-top: 0.5rem;
+}
+
+.producto-price {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--rojo);
+    padding: 1rem;
+}
+
+.producto-actions {
+    padding: 1rem;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
