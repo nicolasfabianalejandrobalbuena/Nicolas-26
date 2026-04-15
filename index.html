@@ -3,151 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>369163 | TERMINAL V6.0</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Servicios legales profesionales en Presidencia Roque Sáenz Peña, Chaco">
+    <title>Abogados SP - Servicios Legales Profesionales</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-black text-white antialiased">
-
-    <nav class="nav-terminal fixed w-full z-50 top-0 border-b-2 border-red-700 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <div class="brand-badge animate__animated animate__pulse animate__infinite">369163</div>
-                <div id="user-info" class="hidden md:block border-l border-white/20 pl-4">
-                    <span id="display-name" class="text-[10px] font-mono uppercase font-bold text-red-500"></span>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-gavel"></i>
+                    <span>Abogados SP</span>
                 </div>
-            </div>
-            <div class="flex gap-4">
-                <button id="auth-btn" onclick="UI.toggleModal('modal-auth')" class="text-[10px] font-black uppercase border-b-2 border-red-700">ACCESO</button>
-                <button onclick="UI.toggleModal('modal-cart')" class="bg-white text-black px-4 py-1 font-black text-xs">
-                    TICKET (<span id="cart-count">0</span>)
-                </button>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#abogados">Abogados</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <div class="ticker-wrap mt-20">
-        <div class="ticker">
-            • ARANCEL GESTIÓN 5% • DESPACHO DIRECTO AL 3644369163 • RIFA ACTIVA CON TU COMPRA • CALIDAD PREMIUM 369 •
+    <!-- Sección Héroe -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Servicios Legales de Confianza</h1>
+                <p class="hero-subtitle">En Presidencia Roque Sáenz Peña, Chaco - Representamos tus derechos con profesionalismo</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="scrollToContacto()">Solicitar Consulta</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('abogados')">Ver Abogados</button>
+                </div>
+                <div class="pricing-info">
+                    <span class="price-badge">Desde <strong>$5.000</strong> ARS</span>
+                    <span class="price-badge">USD <strong>$15</strong></span>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <main class="max-w-7xl mx-auto p-6 md:p-12">
-        <header class="mb-12">
-            <h1 class="text-6xl md:text-8xl font-black italic uppercase leading-none tracking-tighter">
-                SISTEMA <br><span class="text-red-700">AUTOMÁTICO</span>
-            </h1>
-            <p class="text-xs md:text-sm mt-6 text-white/70 font-mono">— CORTES PREMIUM SELECCIONADOS — DESPACHO DIRECTO — GARANTÍA 369 —</p>
-        </header>
-
-        <!-- SECCIÓN DESTACADOS -->
-        <section class="section-highlight mb-16">
-            <div class="section-title">⚡ OFERTAS DESTACADAS</div>
-            <div id="grid-destacados" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"></div>
-        </section>
-
-        <!-- SECCIÓN GOURMET -->
-        <section class="section-gourmet mb-16">
-            <div class="section-title">🥩 CORTES GOURMET</div>
-            <div id="grid-gourmet" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </section>
-
-        <!-- SECCIÓN PREMIUM -->
-        <section class="section-premium mb-16">
-            <div class="section-title">👑 SELECCIÓN PREMIUM</div>
-            <div id="grid-premium" class="grid grid-cols-1 gap-8"></div>
-        </section>
-
-        <!-- INFORMACIÓN -->
-        <section class="info-section mt-16 p-8 border-4 border-red-700 bg-black">
-            <h3 class="text-2xl font-black mb-4 text-red-700">📋 FORMAS DE PAGO</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                <div class="flex items-start gap-3">
-                    <span class="text-2xl">💵</span>
-                    <div><strong>EFECTIVO</strong><p class="text-white/60">10% de descuento</p></div>
-                </div>
-                <div class="flex items-start gap-3">
-                    <span class="text-2xl">💳</span>
-                    <div><strong>TARJETA (DÉBITO/CRÉDITO)</strong><p class="text-white/60">Sin recargo</p></div>
-                </div>
-                <div class="flex items-start gap-3">
-                    <span class="text-2xl">🏛️</span>
-                    <div><strong>TRANSFERENCIA BANCARIA</strong><p class="text-white/60">Banco elegido</p></div>
+    <!-- Sección de Carrusel -->
+    <section class="carousel-section" aria-label="Equipo destacado de abogados">
+        <div class="container">
+            <div class="carousel-header">
+                <h2 class="section-title">Equipo Destacado</h2>
+                <p class="carousel-description">Conoce a los abogados que lideran cada área legal en Presidencia Roque Sáenz Peña.</p>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <article class="carousel-slide active">
+                        <img src="img/lawyer1.jpg" alt="Dr. Carlos Rodríguez - Derecho Civil">
+                        <div class="slide-copy">
+                            <h3>Dr. Carlos Rodríguez</h3>
+                            <p>Derecho Civil e Inmobiliario · +15 años de experiencia.</p>
+                        </div>
+                    </article>
+                    <article class="carousel-slide">
+                        <img src="img/lawyer2.jpg" alt="Dra. María López - Derecho Laboral">
+                        <div class="slide-copy">
+                            <h3>Dra. María López</h3>
+                            <p>Derecho Laboral · Defensa laboral y reclamos salariales.</p>
+                        </div>
+                    </article>
+                    <article class="carousel-slide">
+                        <img src="img/lawyer3.jpg" alt="Dr. Juan Pérez - Derecho Penal">
+                        <div class="slide-copy">
+                            <h3>Dr. Juan Pérez</h3>
+                            <p>Derecho Penal · Representación sólida y personal.</p>
+                        </div>
+                    </article>
+                    <article class="carousel-slide">
+                        <img src="img/lawyer4.jpg" alt="Dra. Claudia Fernández - Derecho de Familia">
+                        <div class="slide-copy">
+                            <h3>Dra. Claudia Fernández</h3>
+                            <p>Derecho de Familia · Casos de divorcio y custodia.</p>
+                        </div>
+                    </article>
+                    <article class="carousel-slide">
+                        <img src="img/lawyer5.jpg" alt="Dr. Andrés Gómez - Derecho Comercial">
+                        <div class="slide-copy">
+                            <h3>Dr. Andrés Gómez</h3>
+                            <p>Derecho Comercial · Contratos y asesoría empresarial.</p>
+                        </div>
+                    </article>
+                    <article class="carousel-slide">
+                        <img src="img/lawyer6.jpg" alt="Lic. Valentina Torres - Derecho Inmobiliario">
+                        <div class="slide-copy">
+                            <h3>Lic. Valentina Torres</h3>
+                            <p>Derecho Inmobiliario · Gestión y resolución de conflictos.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <div id="modal-auth" class="modal-overlay">
-        <div class="talonario-card max-w-md w-full animate__animated animate__zoomIn">
-            <div class="flex border-b-4 border-black mb-6 text-black">
-                <button onclick="UI.switchAuth('login')" id="tab-login" class="auth-tab active">ENTRAR</button>
-                <button onclick="UI.switchAuth('reg')" id="tab-reg" class="auth-tab">REGISTRO</button>
-            </div>
-            <div id="form-login">
-                <input type="email" id="l-email" class="input-369 mb-4" placeholder="EMAIL">
-                <input type="password" id="l-pass" class="input-369 mb-4" placeholder="CONTRASEÑA">
-                <button onclick="Auth.login()" class="btn-action">ACCEDER</button>
-            </div>
-            <div id="form-reg" class="hidden">
-                <div class="grid grid-cols-2 gap-2 mb-4">
-                    <input type="text" id="r-name" class="input-369" placeholder="NOMBRE">
-                    <input type="text" id="r-last" class="input-369" placeholder="APELLIDO">
-                </div>
-                <input type="email" id="r-email" class="input-369 mb-4" placeholder="EMAIL">
-                <div class="grid grid-cols-2 gap-2 mb-4">
-                    <input type="text" id="r-calle" class="input-369" placeholder="CALLE">
-                    <input type="text" id="r-numero" class="input-369" placeholder="NÚMERO">
-                </div>
-                <input type="text" id="r-barrio" class="input-369 mb-4" placeholder="BARRIO">
-                <input type="password" id="r-pass" class="input-369 mb-4" placeholder="PASSWORD">
-                <button onclick="Auth.register()" class="btn-action bg-red-800">CREAR CUENTA</button>
-            </div>
-            <button onclick="UI.toggleModal('modal-auth')" class="w-full mt-4 text-[10px] font-bold opacity-30 text-black">CERRAR</button>
         </div>
-    </div>
+    </section>
 
-    <div id="modal-cart" class="modal-overlay">
-        <div class="talonario-card max-w-lg w-full">
-            <h2 class="text-2xl font-black italic border-b-2 border-black mb-2 text-black uppercase">Ticket</h2>
-            <div id="cart-items" class="max-h-48 overflow-y-auto mb-2 text-xs"></div>
-            <div class="p-2 bg-zinc-200 border-2 border-black font-mono text-black text-sm">
-                <div class="flex justify-between"><span>SUBTOTAL</span> <span id="val-sub">$0</span></div>
-                <div class="flex justify-between text-red-700 font-bold"><span>ARANCEL (5%)</span> <span id="val-tax">$0</span></div>
-                <div id="desc-row" class="hidden flex justify-between text-green-700 font-bold"><span>DESC.(-10%)</span> <span id="val-desc">$0</span></div>
-                <div class="flex justify-between text-xl font-black border-t border-black mt-1 pt-1">
-                    <span>TOTAL</span> <span id="val-total">$0</span>
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Derecho Inmobiliario</h3>
+                    <p>Compraventa, alquileres y trámites de propiedades con total seguridad legal.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Derecho Laboral</h3>
+                    <p>Asesoramiento en conflictos laborales y protección de tus derechos como trabajador.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Derecho de Familia</h3>
+                    <p>Divorcios, custodia de menores y asuntos familiares con confidencialidad.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Derecho Civil</h3>
+                    <p>Sucesiones, herencias y resolución de conflictos civiles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Derecho Comercial</h3>
+                    <p>Constitución de empresas, contratos mercantiles y asesoramiento empresarial.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Derecho Penal</h3>
+                    <p>Defensa legal en procesos penales con experiencia y dedicación.</p>
                 </div>
             </div>
-            <select id="pay-method" onchange="UI.toggleCardFields()" class="input-369 bg-white mt-2 font-bold text-xs">
-                <option value="EFECTIVO">💵 EFECTIVO (-10%)</option>
-                <option value="MERCADOPAGO">💳 TARJETA</option>
-                <option value="TRANSFERENCIA">🏛️ TRANSFERENCIA</option>
-            </select>
-            
-            <div id="card-fields" class="hidden mt-2 p-2 bg-white border-2 border-red-700 rounded">
-                <h4 class="font-bold text-black mb-1 text-xs">💳 Tarjeta</h4>
-                <input type="text" id="card-name" class="input-369 mb-1 text-black text-xs placeholder:text-xs" placeholder="TITULAR">
-                <input type="text" id="card-number" class="input-369 mb-1 text-black text-xs placeholder:text-xs" placeholder="6 PRIM. + 4 ÚLTIMOS" maxlength="10">
-                <div class="grid grid-cols-2 gap-1">
-                    <input type="text" id="card-expiry" class="input-369 text-black text-xs placeholder:text-xs" placeholder="MM/DD" maxlength="5">
-                    <input type="text" id="card-cvv" class="input-369 text-black text-xs placeholder:text-xs" placeholder="CVV" maxlength="4">
-                </div>
-            </div>
-            <div id="transfer-fields" class="hidden mt-2 p-2 bg-white border-2 border-red-700 rounded">
-                <h4 class="font-bold text-black mb-1 text-xs">🏦 Transferencia Bancaria (CBU)</h4>
-                <input type="text" id="transfer-bank" class="input-369 mb-1 text-black text-xs" placeholder="Banco (ej. Banco Nación)">
-                <input type="text" id="transfer-cbu" class="input-369 mb-1 text-black text-xs" placeholder="CBU / Alias">
-                <p class="text-[10px] text-black/60 mt-1">Envía la transferencia a este CBU y agrega la referencia en el mensaje.</p>
-            </div>
-            
-            <button onclick="Cart.checkout()" class="btn-whatsapp text-sm mt-2">ENVIAR</button>
-            <button onclick="UI.toggleModal('modal-cart')" class="w-full mt-4 text-[10px] font-bold opacity-30 text-black uppercase">Volver</button>
         </div>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Sección de Abogados -->
+    <section id="abogados" class="lawyers">
+        <div class="container">
+            <h2 class="section-title">Nuestros Abogados</h2>
+            <div class="lawyers-grid">
+                <div class="lawyer-card">
+                    <div class="lawyer-image">
+                        <img src="img/lawyer1.jpg" alt="Dr. Carlos Rodríguez">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/5493644369163" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Dr. Carlos Rodríguez</h3>
+                    <p class="specialty">Especialista en Derecho Civil</p>
+                    <p class="experience">+15 años de experiencia</p>
+                    <div class="contact-info">
+                        <a href="tel:+5493644369163"><i class="fas fa-phone"></i> +54 3644-369163</a>
+                    </div>
+                </div>
+
+                <div class="lawyer-card">
+                    <div class="lawyer-image">
+                        <img src="img/lawyer2.jpg" alt="Dra. María López">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/5493644369163" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Dra. María López</h3>
+                    <p class="specialty">Especialista en Derecho Laboral</p>
+                    <p class="experience">+10 años de experiencia</p>
+                    <div class="contact-info">
+                        <a href="tel:+5493644369163"><i class="fas fa-phone"></i> +54 3644-369163</a>
+                    </div>
+                </div>
+
+                <div class="lawyer-card">
+                    <div class="lawyer-image">
+                        <img src="img/lawyer3.jpg" alt="Dr. Juan Pérez">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/5493644369163" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Dr. Juan Pérez</h3>
+                    <p class="specialty">Especialista en Derecho Penal</p>
+                    <p class="experience">+12 años de experiencia</p>
+                    <div class="contact-info">
+                        <a href="tel:+5493644369163"><i class="fas fa-phone"></i> +54 3644-369163</a>
+                    </div>
+                </div>
+
+                <div class="lawyer-card">
+                    <div class="lawyer-image">
+                        <img src="img/lawyer4.jpg" alt="Dra. Claudia Fernández">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/5493644369163" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Dra. Claudia Fernández</h3>
+                    <p class="specialty">Especialista en Derecho de Familia</p>
+                    <p class="experience">+8 años de experiencia</p>
+                    <div class="contact-info">
+                        <a href="tel:+5493644369163"><i class="fas fa-phone"></i> +54 3644-369163</a>
+                    </div>
+                </div>
+
+                <div class="lawyer-card">
+                    <div class="lawyer-image">
+                        <img src="img/lawyer5.jpg" alt="Dr. Andrés Gómez">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/5493644369163" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Dr. Andrés Gómez</h3>
+                    <p class="specialty">Especialista en Derecho Comercial</p>
+                    <p class="experience">+9 años de experiencia</p>
+                    <div class="contact-info">
+                        <a href="tel:+5493644369163"><i class="fas fa-phone"></i> +54 3644-369163</a>
+                    </div>
+                </div>
+
+                <div class="lawyer-card">
+                    <div class="lawyer-image">
+                        <img src="img/lawyer6.jpg" alt="Lic. Valentina Torres">
+                        <div class="lawyer-overlay">
+                            <a href="https://wa.me/5493644369163" class="whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Lic. Valentina Torres</h3>
+                    <p class="specialty">Especialista en Derecho Inmobiliario</p>
+                    <p class="experience">+7 años de experiencia</p>
+                    <div class="contact-info">
+                        <a href="tel:+5493644369163"><i class="fas fa-phone"></i> +54 3644-369163</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Beneficios -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Profesionalismo Garantizado</h3>
+                    <p>Abogados con años de experiencia en diversas áreas del derecho.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Confidencialidad Total</h3>
+                    <p>Tus datos y casos están protegidos bajo secreto profesional.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Atención Rápida</h3>
+                    <p>Respuesta inmediata a tus consultas y trámites ágiles.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Precios Competitivos</h3>
+                    <p>Honorarios justos y planes de pago flexibles según tu necesidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section id="testimonios" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonioss de Clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Excelente asesoramiento legal. El Dr. Carlos resolvió mi caso de manera rápida y eficiente. Lo recomiendo ampliamente."</p>
+                    <div class="testimonial-author">
+                        <strong>Luis García</strong>
+                        <span>Cliente verificado</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"La Dra. María fue muy profesional en mi caso laboral. Me ayudó a obtener la mejor solución posible. Muy satisfecho."</p>
+                    <div class="testimonial-author">
+                        <strong>Ana Martínez</strong>
+                        <span>Cliente verificado</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Atención de primera clase. El equipo de Abogados SP se preocupa genuinamente por sus clientes. Altamente recomendado."</p>
+                    <div class="testimonial-author">
+                        <strong>Roberto Sánchez</strong>
+                        <span>Cliente verificado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto/Pedido -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info-box">
+                    <h2>Ponte en Contacto</h2>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Presidencia Roque Sáenz Peña, Chaco, Argentina</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p><a href="tel:+5493644369163">+54 3644-369163</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/5493644369163">+54 3644-369163</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Correo Electrónico</h4>
+                            <p><a href="mailto:contacto@abogadosp.com">contacto@abogadosp.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <h3>Solicitar Consulta</h3>
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        <span class="error-message" id="errorNombre"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellido">Apellido *</label>
+                        <input type="text" id="apellido" name="apellido" required placeholder="Tu apellido">
+                        <span class="error-message" id="errorApellido"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="celular">Teléfono/Celular *</label>
+                        <input type="tel" id="celular" name="celular" required placeholder="+54 3644-369163">
+                        <span class="error-message" id="errorCelular"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                        <span class="error-message" id="errorEmail"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servicio">Servicio Requerido *</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="Derecho Inmobiliario">Derecho Inmobiliario</option>
+                            <option value="Derecho Laboral">Derecho Laboral</option>
+                            <option value="Derecho de Familia">Derecho de Familia</option>
+                            <option value="Derecho Civil">Derecho Civil</option>
+                            <option value="Derecho Comercial">Derecho Comercial</option>
+                            <option value="Derecho Penal">Derecho Penal</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <span class="error-message" id="errorServicio"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccion">Dirección (Calle, Número, Apartamento)</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Calle 123, Apartamento 4B">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="barrio">Barrio</label>
+                        <input type="text" id="barrio" name="barrio" placeholder="Tu barrio">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Cuéntanos tu caso *</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Describe brevemente tu situación legal..."></textarea>
+                        <span class="error-message" id="errorMensaje"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="moneda">Moneda de Presupuesto</label>
+                        <select id="moneda" name="moneda">
+                            <option value="ARS">Pesos Argentinos (ARS)</option>
+                            <option value="USD">Dólares (USD)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        <label for="terminos">Acepto los términos y condiciones y la política de privacidad</label>
+                        <span class="error-message" id="errorTerminos"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Abogados SP</h4>
+                    <p>Servicios legales profesionales en Presidencia Roque Sáenz Peña, Chaco.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#abogados">Abogados</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Teléfono: <a href="tel:+5493644369163">+54 3644-369163</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/5493644369163">+54 3644-369163</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Abogados SP. Todos los derechos reservados. | Presidencia Roque Sáenz Peña, Chaco</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
