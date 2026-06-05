@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ titulo }} | EcoBooking</title>
+<!-- Usamos Tailwind para diseño rápido -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome para iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 flex flex-col min-h-screen">
+<!-- Navegación Global --><nav class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-4 shadow-lg">
+<div class="container mx-auto flex justify-between items-center">
+<h1 class="text-xl font-bold"><i class="fas fa-cut"></i> EcoBooking</h1>
+<div class="space-x-4">
+<a href="/" class="hover:text-yellow-300"><i class="fas fa-home"></i> Inicio</a>
+<a href="/servicios" class="hover:text-yellow-300"><i class="fas fa-concierge-bell"></i> Servicios</a>
+<a href="/productos" class="hover:text-yellow-300"><i class="fas fa-shopping-bag"></i> Productos</a>
+<a href="/galeria" class="hover:text-yellow-300"><i class="fas fa-images"></i> Galería</a>
+<a href="/contacto" class="hover:text-yellow-300"><i class="fas fa-envelope"></i> Contacto</a>
+<a href="/sobre-nosotros" class="hover:text-yellow-300"><i class="fas fa-info-circle"></i> Sobre Nosotros</a>
+</div>
+</div>
+</nav>
+<!-- Barra de búsqueda -->
+<div class="bg-white p-2 shadow-md">
+<div class="container mx-auto">
+<input type="text" id="search-bar" placeholder="Buscar servicios, productos..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+</div>
+</div>
+<!-- Contenido Dinámico -->
+<main class="container mx-auto mt-10 p-4 flex-grow bg-white bg-opacity-90 rounded-lg shadow-lg">
+{% block content %}
+<!-- Aquí se inyectará el código de las otras páginas -->
+{% endblock %}
+</main>
+<!-- Chatbot -->
+<div id="chatbot" class="fixed bottom-4 right-4 bg-indigo-600 text-white p-4 rounded-lg shadow-lg hidden">
+<div class="flex items-center mb-2">
+<i class="fas fa-robot mr-2"></i> Asistente Virtual
+<button id="close-chat" class="ml-auto text-white"><i class="fas fa-times"></i></button>
+</div>
+<div id="chat-messages" class="mb-2 max-h-40 overflow-y-auto"></div>
+<input type="text" id="chat-input" placeholder="Escribe tu mensaje..." class="w-full px-2 py-1 rounded">
+</div>
+<button id="open-chat" class="fixed bottom-4 right-4 bg-indigo-600 text-white p-3 rounded-full shadow-lg">
+<i class="fas fa-comments"></i>
+</button>
+<!-- Pie de Página Global -->
+<footer class="bg-gradient-to-r from-gray-800 to-black text-gray-400 text-center p-6 mt-10">
+<p>&copy; 2024 Diseño Web II - Aprendiendo Jinja2 | <i class="fas fa-heart text-red-500"></i> Hecho con amor</p>
+</footer>
+<script>
+// Simple chatbot
+const messages = [
+"Hola, ¿en qué puedo ayudarte?",
+"¿Te gustaría agendar un servicio?",
+"Tenemos promociones especiales esta semana.",
+"¿Necesitas información sobre nuestros productos?"
+];
+let messageIndex = 0;
+document.getElementById('open-chat').addEventListener('click', () => {
+document.getElementById('chatbot').classList.remove('hidden');
+document.getElementById('open-chat').classList.add('hidden');
+});
+document.getElementById('close-chat').addEventListener('click', () => {
+document.getElementById('chatbot').classList.add('hidden');
+document.getElementById('open-chat').classList.remove('hidden');
+});
+document.getElementById('chat-input').addEventListener('keypress', (e) => {
+if (e.key === 'Enter') {
+const input = e.target.value;
+if (input) {
+addMessage('Tú: ' + input);
+setTimeout(() => addMessage('Bot: ' + messages[messageIndex % messages.length]), 1000);
+messageIndex++;
+e.target.value = '';
+}
+}
+});
+function addMessage(msg) {
+const chatMessages = document.getElementById('chat-messages');
+chatMessages.innerHTML += '<p>' + msg + '</p>';
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+</script>
+</body>
+</html>
