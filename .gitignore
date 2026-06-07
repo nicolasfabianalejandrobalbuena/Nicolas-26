@@ -1,6 +1,4 @@
-venv/
-__pycache__/
-*.pyc
-data/*.json
-instance/
+node_modules
+dist
 .env
+src/data/judicial.db

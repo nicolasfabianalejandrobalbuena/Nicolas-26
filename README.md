@@ -1,44 +1,110 @@
-python -m venv venv
-.\venv\Scripts\activate
-pip install -r requirements.txt
-python app.py# Armado TV - Tienda de televisores
+# Judicial Automation Stack
 
-Proyecto de tienda web para vender TVs con carrito interactivo, registro, login y métodos de pago.
+Este proyecto tiene dos servidores independientes:
 
-## Estructura del proyecto
+- `frontend/` — Servidor 1: SPA React + Tailwind
+- `backend/` — Servidor 2: Node.js + Express + WebSocket + SQLite
 
-- `app.py` - servidor Flask con rutas para inicio, productos, carrito, checkout, registro, login y contacto.
-- `templates/` - plantillas Jinja2 para el frontend.
-- `static/css/style.css` - estilos principales.
-- `static/js/main.js` - carrusel automático y scripts de interfaz.
-- `data/users.json` - usuarios registrados.
-- `data/orders.json` - pedidos generados.
-- `requirements.txt` - dependencias de Python.
+También hay configuraciones de VS Code para ejecutar ambos servidores directamente.
 
-## Cómo iniciar el proyecto
+## Estructura de carpetas
 
-1. Abre una terminal en `c:\Users\Nicolas\Desktop\armado tv pagina web`.
-2. Crea un entorno virtual (opcional pero recomendado):
-   - `python -m venv venv`
-3. Activa el entorno virtual:
-   - Windows: `venv\Scripts\activate`
-4. Instala Flask:
-   - `pip install -r requirements.txt`
-5. Ejecuta la aplicación:
-   - `python app.py`
-6. Abre el navegador en `http://127.0.0.1:5000`
+```
+mi pagina/
+├── .vscode/
+│   ├── launch.json
+│   └── tasks.json
+├── backend/
+│   ├── .gitignore
+│   ├── .env.example
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── tsconfig.json
+│   ├── public/
+│   │   ├── index.html
+│   │   └── documents/
+│   │       ├── documento-judicial-01.pdf
+│   │       ├── documento-judicial-02.pdf
+│   │       ├── documento-judicial-03.pdf
+│   │       ├── documento-judicial-04.pdf
+│   │       ├── documento-judicial-05.pdf
+│   │       ├── documento-judicial-06.pdf
+│   │       ├── documento-judicial-07.pdf
+│   │       └── documento-judicial-08.pdf
+│   └── src/
+│       ├── db.ts
+│       ├── index.ts
+│       ├── scripts/
+│       │   ├── generateDocuments.ts
+│       │   └── initDb.ts
+│       ├── services/
+│       │   ├── notificationService.ts
+│       │   └── paymentService.ts
+│       └── utils.ts
+├── frontend/
+│   ├── .gitignore
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── postcss.config.js
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
+│   ├── vite.config.ts
+│   ├── public/
+│   │   └── index.html
+│   └── src/
+│       ├── App.tsx
+│       ├── main.tsx
+│       ├── vite-env.d.ts
+│       ├── styles/
+│       │   └── index.css
+│       ├── components/
+│       │   ├── AuthShell.tsx
+│       │   ├── CartPanel.tsx
+│       │   ├── Dashboard.tsx
+│       │   ├── DocumentLibrary.tsx
+│       │   └── PaymentCheckout.tsx
+│       └── lib/
+│           ├── api.ts
+│           ├── socket.ts
+│           └── types.ts
+└── app.py
+```
 
-## Características incluidas
+## Cómo ejecutar en VS Code
 
-- Catálogo dividido en 3 secciones: `Gama Alta`, `Gama Media` y `Gama Baja`.
-- Carrito de compra con controles para sumar, restar y eliminar productos.
-- Checkout con campos de nombre, apellido, email, teléfono, dirección y método de pago.
-- Registro e inicio de sesión con almacenamiento local de usuario.
-- Formulario de contacto y enlace directo a WhatsApp en `3644369163`.
-- Diseño responsivo y moderno con CSS personalizado.
+### Opción 1: con Variables de entorno dentro del terminal
+
+#### Backend
+
+```powershell
+$env:Path = "C:\Users\nicol\Desktop\mi pagina\node-portable\node-v20.14.0-win-x64;" + $env:Path
+cd "C:\Users\nicol\Desktop\mi pagina\backend"
+.\npm.cmd run dev
+```
+
+#### Frontend
+
+```powershell
+$env:Path = "C:\Users\nicol\Desktop\mi pagina\node-portable\node-v20.14.0-win-x64;" + $env:Path
+cd "C:\Users\nicol\Desktop\mi pagina\frontend"
+.\npm.cmd run dev
+```
+
+### Opción 2: desde `.vscode`
+
+1. Abre VS Code en `c:\Users\nicol\Desktop\mi pagina`
+2. Presiona `Ctrl+Shift+D`
+3. Selecciona `Launch Backend` o `Launch Frontend`
+4. O usa el compuesto `Run Full Judicial Stack`
+
+## URLs de acceso
+
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:4000`
 
 ## Notas
 
-- Para entorno de producción, cambia `app.secret_key` por una clave segura.
-- Este proyecto usa almacenamiento local en JSON para facilitar la demostración.
-- En producción se recomienda usar base de datos real y HTTPS.
+- Los archivos de la app de Flask original están en `app.py`, pero para esta arquitectura moderna se utilizan `frontend/` y `backend/`.
+- El backend sirve los PDFs desde `backend/public/documents/`.
+- El servidor backend también tiene una página de bienvenida en `backend/public/index.html`.

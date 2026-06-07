@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Run Full Judicial Stack",
+      "configurations": ["Launch Backend", "Launch Frontend"]
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Launch Backend",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}\\backend",
+      "runtimeExecutable": "C:\\Users\\nicol\\Desktop\\mi pagina\\node-portable\\node-v20.14.0-win-x64\\node.exe",
+      "program": "${workspaceFolder}\\backend\\node_modules\\ts-node\\dist\\bin.js",
+      "args": ["src/index.ts"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Launch Frontend",
+      "type": "pwa-node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}\\frontend",
+      "runtimeExecutable": "C:\\Users\\nicol\\Desktop\\mi pagina\\node-portable\\node-v20.14.0-win-x64\\node.exe",
+      "program": "${workspaceFolder}\\frontend\\node_modules\\vite\\bin\\vite.js",
+      "args": ["--host", "0.0.0.0"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
