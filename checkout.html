@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | San Agustín</title>
+  <meta name="description" content="Formulario de pago seguro con envío y datos de facturación para completar la compra." />
+  <link rel="stylesheet" href="styles/style.css" />
+  <script defer src="scripts/data.js"></script>
+  <script defer src="scripts/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-bar">
+      <a href="index.html"><img src="img/logo.svg" alt="San Agustín" class="brand-logo" /></a>
+      <nav class="nav-main" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="category.html">Categorías</a>
+        <a href="cart.html">Carrito</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="section-heading">
+      <h1>Checkout</h1>
+      <p>Completa tus datos para procesar el pago de forma segura.</p>
+    </section>
+
+    <section class="checkout-card">
+      <h2>Dirección de envío</h2>
+      <form id="checkout-form">
+        <div class="form-grid">
+          <label>Nombre completo
+            <input type="text" name="fullName" required />
+          </label>
+          <label>Correo electrónico
+            <input type="email" name="email" required />
+          </label>
+          <label>Dirección
+            <input type="text" name="address" required />
+          </label>
+          <label>Ciudad
+            <input type="text" name="city" required />
+          </label>
+          <label>Teléfono
+            <input type="tel" name="phone" required />
+          </label>
+          <label>Detalles del pedido
+            <input type="text" name="orderNotes" placeholder="Ej. 2 unidades, color negro" />
+          </label>
+        </div>
+
+        <h2>Método de pago</h2>
+        <div class="payment-methods">
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="card" checked />
+            <span>Tarjeta / Transferencia</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="cash" />
+            <span>Pago en efectivo</span>
+          </label>
+        </div>
+
+        <div id="payment-details" class="payment-details">
+          <label>Número de tarjeta
+            <input type="text" name="cardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" autocomplete="cc-number" />
+          </label>
+          <div class="form-grid">
+            <label>Vencimiento
+              <input type="text" name="cardExpiry" placeholder="MM/AA" />
+            </label>
+            <label>Código de seguridad
+              <input type="text" name="cardCvv" placeholder="123" inputmode="numeric" />
+            </label>
+          </div>
+          <label>CBU para transferir
+            <input type="text" name="transferDetails" placeholder="CBU o alias" />
+          </label>
+          <label>Observación del pago
+            <input type="text" name="paymentNote" placeholder="Ej. pago por transferencia o efectivo" />
+          </label>
+        </div>
+
+        <p class="checkout-helper">Al confirmar, se abrirá WhatsApp con todos los datos del pedido listos para enviar.</p>
+        <button type="submit" class="action-button">Confirmar pedido por WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>San Agustín — Compra con confianza.</p>
+  </footer>
+</body>
+</html>

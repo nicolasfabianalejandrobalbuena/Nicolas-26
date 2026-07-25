@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categorías | San Agustín</title>
+  <meta name="description" content="Encuentra categorías de artículos generales y filtra por stock, precio y ofertas en San Agustín." />
+  <link rel="stylesheet" href="styles/style.css" />
+  <script defer src="scripts/data.js"></script>
+  <script defer src="scripts/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-bar">
+      <a href="index.html"><img src="img/logo.svg" alt="San Agustín" class="brand-logo" /></a>
+      <nav class="nav-main" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="category.html">Categorías</a>
+        <a href="cart.html">Carrito</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="section-heading">
+      <h1>Categoría</h1>
+      <p>Explora productos filtrados y selecciona el artículo perfecto.</p>
+    </section>
+
+    <aside class="filter-panel">
+      <div class="checkout-card">
+        <h2>Filtros</h2>
+        <label>Precio mínimo
+          <input type="number" placeholder="0" />
+        </label>
+        <label>Precio máximo
+          <input type="number" placeholder="999" />
+        </label>
+        <label>Disponibilidad
+          <select>
+            <option>Todos</option>
+            <option>En stock</option>
+          </select>
+        </label>
+      </div>
+    </aside>
+
+    <section id="category-products" class="product-grid"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p>San Agustín — Catálogo de artículos generales.</p>
+  </footer>
+</body>
+</html>

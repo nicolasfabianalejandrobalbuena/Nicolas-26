@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>San Agustín | Artículos generales</title>
+  <meta name="description" content="Compra artículos generales con envío rápido y pagos seguros en San Agustín. Navegación rápida, catálogo responsive y stock actualizado." />
+  <link rel="canonical" href="https://sanagustin.com/" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <script defer src="scripts/data.js"></script>
+  <script defer src="scripts/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-bar">
+      <img src="img/logo.svg" alt="San Agustín" class="brand-logo" />
+      <nav class="nav-main" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="category.html">Categorías</a>
+        <a href="cart.html">Carrito</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+    </div>
+    <div class="hero-search">
+      <div>
+        <h1>Compra rápido. Recibe seguro.</h1>
+        <p>Catálogo de artículos generales, ofertas diarias y stock verificado.</p>
+        <div class="hero-actions">
+          <button class="action-button" type="button" onclick="openWhatsApp('Hola San Agustín, quiero consultar productos y precios.')">Comprar por WhatsApp</button>
+          <a class="button-secondary" href="category.html">Ver catálogo</a>
+        </div>
+      </div>
+      <form id="search-form" class="search-bar" role="search">
+        <input id="search-input" type="search" placeholder="Buscar producto, categoría o marca" aria-label="Buscar productos" />
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="promo-banner">
+      <div>
+        <p class="badge badge-sale">Oferta del día</p>
+        <h2>Hasta 30% off en accesorios y gadgets</h2>
+        <p>Envío rápido, pagos seguros y stock actualizado para que compres sin complicaciones.</p>
+      </div>
+      <a class="action-button" href="category.html">Ver ofertas</a>
+    </section>
+
+    <section class="carousel-section" aria-label="Promociones destacadas">
+      <div class="carousel-container">
+        <button class="carousel-control" type="button" data-action="prev" aria-label="Anterior">←</button>
+        <div class="carousel-track">
+          <article class="carousel-slide active">
+            <img src="img/Llavero Grande Whatsapp Emoticones Emoji Peluche de 9cm x 10,5cm.webp" alt="Promoción de regalos y accesorios" />
+            <div class="carousel-copy">
+              <p class="badge badge-sale">Promoción</p>
+              <h3>Regalos y accesorios para vender rápido</h3>
+              <p>Encontrá productos atractivos para clientes y para regalar.</p>
+            </div>
+          </article>
+          <article class="carousel-slide">
+            <img src="img/Auriculares Boca En Bolsa Mod3.webp" alt="Auriculares en oferta" />
+            <div class="carousel-copy">
+              <p class="badge badge-sale">Oferta</p>
+              <h3>Gadgets y audio con excelente precio</h3>
+              <p>Equipos funcionales y muy buscados para tu negocio o uso personal.</p>
+            </div>
+          </article>
+          <article class="carousel-slide">
+            <img src="img/Lámpara Velador Recargable 29x12Cm Led Superior e Inferior Astronauta, Color Blanco.webp" alt="Lámpara recargable" />
+            <div class="carousel-copy">
+              <p class="badge badge-sale">Novedad</p>
+              <h3>Productos prácticos para el hogar</h3>
+              <p>Explora opciones modernas y de fácil venta en cualquier época.</p>
+            </div>
+          </article>
+        </div>
+        <button class="carousel-control" type="button" data-action="next" aria-label="Siguiente">→</button>
+      </div>
+      <div class="carousel-dots" aria-label="Selector de slides"></div>
+    </section>
+
+    <section class="payment-section">
+      <h2>Medios de pago</h2>
+      <div class="payment-grid">
+        <article class="payment-card">
+          <h3>💳 Tarjetas</h3>
+          <p>Pago con tarjeta de forma rápida y segura.</p>
+        </article>
+        <article class="payment-card">
+          <h3>🏦 Transferencia</h3>
+          <p>Confirmación inmediata y respaldo para tu compra.</p>
+        </article>
+        <article class="payment-card">
+          <h3>💵 Efectivo</h3>
+          <p>Disponible para pagos presenciales o al recibir.</p>
+        </article>
+        <article class="payment-card">
+          <h3>📱 Mercado Pago</h3>
+          <p>Opción cómoda para pagar desde tu celular.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="steps-section">
+      <h2>¿Cómo comprar en San Agustín?</h2>
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-number">1</span>
+          <h3>Elige tu producto</h3>
+          <p>Explora categorías y encuentra el artículo ideal para ti.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">2</span>
+          <h3>Añádelo al carrito</h3>
+          <p>Modifica cantidades, elimina o suma productos con facilidad.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">3</span>
+          <h3>Finaliza tu compra</h3>
+          <p>Completa tus datos y paga de forma segura en segundos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-features">
+      <article class="feature-card">
+        <h2>Envío rápido</h2>
+        <p>Entrega local en menos de 48 horas.</p>
+      </article>
+      <article class="feature-card">
+        <h2>Pagos seguros</h2>
+        <p>Tarjeta, transferencia o pago en cuotas.</p>
+      </article>
+      <article class="feature-card">
+        <h2>Stock real</h2>
+        <p>Inventario sincronizado en tiempo real con Python.</p>
+      </article>
+    </section>
+
+    <section class="section-categories" aria-label="Categorías principales">
+      <h2>Categorías destacadas</h2>
+      <div id="category-cards" class="grid-4"></div>
+    </section>
+
+    <section class="section-products" aria-label="Productos recomendados">
+      <div class="section-heading">
+        <h2>Productos recomendados</h2>
+      </div>
+      <div id="featured-products" class="product-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>San Agustín</h3>
+        <p>Compras fáciles y entrega local.</p>
+      </div>
+      <div>
+        <h4>Enlaces rápidos</h4>
+        <a href="category.html">Categorías</a>
+        <a href="cart.html">Carrito</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <button class="footer-whatsapp" type="button" onclick="openWhatsApp('Hola San Agustín, quiero hacer una consulta.')">WhatsApp: 3644369163</button>
+        <p>soporte@sanagustin.com</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

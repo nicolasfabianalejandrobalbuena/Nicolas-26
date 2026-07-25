@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Producto | San Agustín</title>
+  <meta name="description" content="Detalle de producto con precio, stock y descripción completa en San Agustín." />
+  <link rel="stylesheet" href="styles/style.css" />
+  <script defer src="scripts/data.js"></script>
+  <script defer src="scripts/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-bar">
+      <a href="index.html"><img src="img/logo.svg" alt="San Agustín" class="brand-logo" /></a>
+      <nav class="nav-main" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="category.html">Categorías</a>
+        <a href="cart.html">Carrito</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="product-detail">
+      <div class="product-gallery">
+        <img src="img/product-placeholder.svg" alt="Imagen del producto" />
+      </div>
+      <div class="product-info">
+        <p class="badge">Stock disponible</p>
+        <h1 id="product-name">Nombre del producto</h1>
+        <p class="product-price" id="product-price">$0.00</p>
+        <p id="product-description">Descripción corta del producto.</p>
+        <div class="product-actions">
+          <button id="add-cart-button" class="action-button">Añadir al carrito</button>
+          <a class="button-secondary" href="checkout.html">Comprar ahora</a>
+        </div>
+        <div class="checkout-card">
+          <h2>Detalles</h2>
+          <p id="product-sku">SKU: --</p>
+          <p id="stock-availability">Estado: --</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>San Agustín — Compra segura y rápida.</p>
+  </footer>
+</body>
+</html>

@@ -1,2 +1,3 @@
-Flask==2.3.4
-Werkzeug==2.3.8
+# Repositorio Python para San Agustín
+# Este proyecto usa solamente la biblioteca estándar de Python.
+# Si se requiere expandir a un backend productivo, agregar paquetes aquí.
